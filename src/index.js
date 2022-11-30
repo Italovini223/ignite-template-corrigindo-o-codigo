@@ -40,10 +40,10 @@ app.put("/repositories/:id", (request, response) => {
   
 
  const repository = repositories[repositoryIndex];
- 
-  repository.title = title;
-  repository.url = url;
-  repository.techs = techs;
+
+  title ? repository.title = title : repository.title = repository.title ;
+  url ? repository.url = url : repository.url = repository.url;
+  techs?  repository.techs = techs : repository.techs = repository.techs;
 
   return response.json(repository);
 });
